@@ -1,0 +1,871 @@
+:root {
+  font-family: 'DM Sans', 'Segoe UI', system-ui, -apple-system, sans-serif;
+  color: #f4f1ea;
+  background: #060607;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 960px;
+  background: #060607;
+  color: #f4f1ea;
+}
+
+/* Custom subtle dark-gold scrollbar */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+::-webkit-scrollbar-track {
+  background: #09090b;
+}
+::-webkit-scrollbar-thumb {
+  background: #29241b;
+  border-radius: 99px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #5b4b2a;
+}
+
+.app-shell {
+  display: flex;
+  min-height: 100vh;
+  background:
+    radial-gradient(ellipse at 75% -10%, rgba(212, 175, 55, 0.085) 0%, transparent 48%),
+    radial-gradient(ellipse at 18% 100%, rgba(16, 185, 129, 0.055) 0%, transparent 45%),
+    #060607;
+}
+
+/* =========================================================================
+   SIDEBAR (OBSIDIAN BLACK + AL BADR GOLD EMBLEM)
+   ========================================================================= */
+.sidebar {
+  width: 264px;
+  flex-shrink: 0;
+  border-right: 1px solid rgba(212, 175, 55, 0.16);
+  padding: 24px 18px;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: linear-gradient(180deg, #09090b 0%, #050506 100%);
+  position: relative;
+}
+
+.albadr-brand-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 14px 10px 18px;
+  margin-bottom: 22px;
+  border-radius: 14px;
+  background: linear-gradient(180deg, rgba(212, 175, 55, 0.07) 0%, rgba(12, 12, 14, 0.6) 100%);
+  border: 1px solid rgba(212, 175, 55, 0.22);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.65), inset 0 1px 0 rgba(253, 230, 138, 0.12);
+}
+
+.albadr-logo-img {
+  width: 162px;
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 4px 14px rgba(212, 175, 55, 0.28));
+  margin-bottom: 10px;
+}
+
+.albadr-title-row {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.albadr-title-row b {
+  font: 800 17px 'Manrope', 'Segoe UI', sans-serif;
+  letter-spacing: -0.4px;
+  background: linear-gradient(135deg, #fdf3c7 0%, #e5be53 55%, #b88b28 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.edition-badge {
+  font-size: 8px;
+  font-weight: 800;
+  letter-spacing: 0.9px;
+  padding: 3px 6px;
+  border-radius: 4px;
+  background: rgba(212, 175, 55, 0.16);
+  border: 1px solid rgba(212, 175, 55, 0.35);
+  color: #f6d878;
+}
+
+.albadr-subtitle {
+  font-size: 10px;
+  letter-spacing: 1.4px;
+  color: #a89f8d;
+  margin-top: 3px;
+  text-transform: uppercase;
+}
+
+.nav-label,
+.eyebrow,
+.section-kicker {
+  font-size: 10px;
+  letter-spacing: 1.45px;
+  color: #b79c5c;
+  font-weight: 700;
+}
+
+.nav-label {
+  padding: 0 10px 10px;
+}
+
+.nav-item {
+  height: 44px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  padding: 0 13px;
+  color: #9e9b93;
+  font-size: 13px;
+  font-weight: 500;
+  margin-bottom: 6px;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: all 160ms ease;
+}
+
+.nav-item:hover {
+  background: rgba(255, 255, 255, 0.035);
+  color: #f3efe6;
+}
+
+.nav-item.active {
+  background: linear-gradient(90deg, rgba(212, 175, 55, 0.14) 0%, rgba(16, 185, 129, 0.08) 100%);
+  color: #f8df8b;
+  border: 1px solid rgba(212, 175, 55, 0.34);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.45);
+}
+
+.nav-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #10b981;
+  box-shadow: 0 0 8px #10b981;
+  margin-left: auto;
+}
+
+.sidebar-bottom {
+  margin-top: auto;
+}
+
+.privacy {
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: #0b0b0e;
+  border-radius: 10px;
+  padding: 12px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.privacy-dot,
+.dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #10b981;
+  box-shadow: 0 0 10px rgba(16, 185, 129, 0.7);
+  flex-shrink: 0;
+}
+
+.privacy b {
+  font-size: 11px;
+  color: #ebe6da;
+  display: block;
+}
+
+.privacy small {
+  font-size: 9.5px;
+  color: #8b867b;
+}
+
+.version {
+  display: block;
+  color: #7c725d;
+  font-size: 9px;
+  letter-spacing: 1.1px;
+  margin: 16px 6px 0;
+  text-align: center;
+}
+
+/* =========================================================================
+   MAIN CONTENT AREA
+   ========================================================================= */
+.main {
+  width: min(1320px, calc(100% - 264px));
+  padding: 26px 34px 22px;
+  margin: 0 auto;
+}
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 22px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid rgba(212, 175, 55, 0.14);
+}
+
+.eyebrow {
+  margin-bottom: 6px;
+}
+
+.topbar h1 {
+  font: 800 26px 'Manrope', 'Segoe UI', sans-serif;
+  margin: 0;
+  letter-spacing: -0.7px;
+  color: #faf7f0;
+}
+
+.top-status {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.status-pill {
+  font-size: 11px;
+  font-weight: 600;
+  color: #e6dec8;
+  border: 1px solid rgba(212, 175, 55, 0.28);
+  padding: 8px 13px;
+  border-radius: 20px;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  background: #0d0d10;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.45);
+}
+
+.mosque-badge-pill {
+  font-size: 11px;
+  font-weight: 700;
+  color: #f6d878;
+  border: 1px solid rgba(212, 175, 55, 0.35);
+  padding: 8px 13px;
+  border-radius: 20px;
+  background: linear-gradient(135deg, rgba(212, 175, 55, 0.14), rgba(18, 18, 22, 0.9));
+}
+
+/* =========================================================================
+   4 STATUS CARDS (OBSIDIAN CARDS + GOLD ACCENT)
+   ========================================================================= */
+.status-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.status-card {
+  background: linear-gradient(180deg, #101014 0%, #0a0a0c 100%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 13px 13px;
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  min-width: 0;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.45);
+  transition: border-color 160ms ease;
+}
+
+.status-card:hover {
+  border-color: rgba(212, 175, 55, 0.28);
+}
+
+.status-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: rgba(212, 175, 55, 0.11);
+  border: 1px solid rgba(212, 175, 55, 0.22);
+  color: #e8c35b;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+}
+
+.status-icon svg {
+  width: 17px;
+  height: 17px;
+}
+
+.status-card span {
+  font-size: 8.5px;
+  letter-spacing: 0.95px;
+  color: #968f80;
+  display: block;
+  margin-bottom: 4px;
+  font-weight: 700;
+}
+
+.status-card b {
+  font-size: 11px;
+  font-weight: 600;
+  color: #f2ede2;
+  white-space: nowrap;
+}
+
+.status-indicator {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #64748b;
+  margin-left: auto;
+  flex-shrink: 0;
+}
+
+/* =========================================================================
+   PANELS & CARDS
+   ========================================================================= */
+.control-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.panel {
+  background: linear-gradient(180deg, #101014 0%, #09090b 100%);
+  border: 1px solid rgba(255, 255, 255, 0.085);
+  border-top: 1px solid rgba(212, 175, 55, 0.22);
+  border-radius: 14px;
+  padding: 19px 20px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.55);
+}
+
+.panel-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 18px;
+}
+
+.panel-heading h2 {
+  font: 700 17px 'Manrope', 'Segoe UI', sans-serif;
+  margin: 4px 0 0;
+  letter-spacing: -0.3px;
+  color: #faf6ed;
+}
+
+.tag {
+  font-size: 8.5px;
+  font-weight: 700;
+  letter-spacing: 0.9px;
+  padding: 6px 9px;
+  border-radius: 6px;
+}
+
+.muted {
+  color: #9b9588;
+  background: #17171c;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.ready-tag {
+  color: #6ee7b7;
+  background: rgba(16, 185, 129, 0.14);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+.live-tag {
+  color: #fde08d;
+  background: rgba(212, 175, 55, 0.16);
+  border: 1px solid rgba(212, 175, 55, 0.38);
+}
+
+.field-label {
+  display: block;
+  color: #a39c8e;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 1.05px;
+  margin-bottom: 8px;
+}
+
+.select-field,
+select {
+  height: 39px;
+  width: 100%;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 8px;
+  background: #070709;
+  color: #f3efe6;
+  padding: 0 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font: 12px 'DM Sans', sans-serif;
+  outline: none;
+  transition: border-color 150ms ease;
+}
+
+select:focus {
+  border-color: #d4af37;
+}
+
+.select-field:disabled {
+  opacity: 0.75;
+}
+
+/* =========================================================================
+   AUDIO LEVEL METER & WAVEFORM ACCENT
+   ========================================================================= */
+.meter-head {
+  display: flex;
+  justify-content: space-between;
+  margin: 16px 0 8px;
+  font-size: 9px;
+  letter-spacing: 0.95px;
+  color: #a39c8e;
+  font-weight: 700;
+}
+
+.db {
+  color: #e7c667;
+  font-variant-numeric: tabular-nums;
+}
+
+.meter {
+  height: 12px;
+  border-radius: 6px;
+  background: #070709;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  overflow: hidden;
+}
+
+.meter-fill {
+  height: 100%;
+  width: 0;
+  background: linear-gradient(90deg, #10b981 0%, #eab308 68%, #ef4444 100%);
+}
+
+.meter-scale {
+  display: flex;
+  justify-content: space-between;
+  color: #706b60;
+  font-size: 8px;
+  margin-top: 6px;
+}
+
+.audio-note {
+  margin-top: 12px;
+  padding: 11px 12px;
+  background: #121216;
+  border: 1px solid rgba(212, 175, 55, 0.25);
+  border-radius: 8px;
+  color: #dfd8c8;
+  font-size: 11px;
+  line-height: 1.5;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+/* =========================================================================
+   SESSION BOX & BUTTONS (GOLD + EMERALD)
+   ========================================================================= */
+.session-display {
+  height: 146px;
+  background: radial-gradient(circle at 50% 25%, rgba(212, 175, 55, 0.08) 0%, #070709 75%);
+  border: 1px dashed rgba(212, 175, 55, 0.28);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  padding: 14px;
+}
+
+.session-symbol {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: rgba(212, 175, 55, 0.14);
+  border: 1px solid rgba(212, 175, 55, 0.35);
+  color: #f4d068;
+  margin-bottom: 10px;
+  box-shadow: 0 0 20px rgba(212, 175, 55, 0.16);
+}
+
+.session-display b {
+  font: 700 13.5px 'Manrope', sans-serif;
+  color: #faf6ed;
+}
+
+.session-display p {
+  font-size: 10.5px;
+  color: #999284;
+  max-width: 340px;
+  line-height: 1.45;
+  margin: 6px 0 0;
+}
+
+.session-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 13px;
+}
+
+.session-actions button,
+.primary-button,
+.secondary-button,
+.stop-button {
+  height: 38px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  font: 600 11.5px 'DM Sans', sans-serif;
+  cursor: pointer;
+  transition: all 150ms ease;
+}
+
+.primary-button {
+  flex: 1;
+  background: linear-gradient(135deg, #d4af37 0%, #b58d22 100%);
+  border: 1px solid #f2d574;
+  color: #090806;
+  font-weight: 700;
+  box-shadow: 0 4px 16px rgba(212, 175, 55, 0.25);
+}
+
+.primary-button:hover:not(:disabled) {
+  background: linear-gradient(135deg, #e5c14b 0%, #c69c2b 100%);
+  transform: translateY(-1px);
+}
+
+.secondary-button {
+  padding: 0 14px;
+  background: #141418;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #dcd6c8;
+}
+
+.secondary-button:hover:not(:disabled) {
+  background: #1c1c22;
+  border-color: rgba(212, 175, 55, 0.35);
+  color: #fff;
+}
+
+.stop-button {
+  width: 40px;
+  background: rgba(239, 68, 68, 0.14);
+  border: 1px solid rgba(239, 68, 68, 0.38);
+  color: #fca5a5;
+}
+
+.stop-button:hover:not(:disabled) {
+  background: rgba(239, 68, 68, 0.24);
+}
+
+.session-actions button:disabled,
+.secondary-button:disabled,
+.primary-button:disabled {
+  opacity: 0.38;
+  cursor: not-allowed;
+}
+
+.latency-row {
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  margin-top: 14px;
+  padding-top: 11px;
+  display: flex;
+  justify-content: space-between;
+  color: #8f897c;
+  font-size: 9.5px;
+  letter-spacing: 0.85px;
+}
+
+.latency-row b {
+  color: #e8c766;
+}
+
+/* =========================================================================
+   PROJECTOR CONTROLS & PREVIEW SCREEN
+   ========================================================================= */
+.projector-panel {
+  padding-bottom: 18px;
+}
+
+.projector-controls {
+  display: flex;
+  align-items: end;
+  gap: 12px;
+}
+
+.display-select {
+  flex: 1;
+}
+
+.display-select select {
+  appearance: auto;
+}
+
+.open-projector {
+  height: 39px;
+  padding: 0 16px;
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.22), rgba(212, 175, 55, 0.18));
+  border: 1px solid rgba(212, 175, 55, 0.42);
+  color: #f8e296;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font: 600 11.5px 'DM Sans', sans-serif;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 150ms ease;
+}
+
+.open-projector:hover {
+  border-color: #f2d574;
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.3), rgba(212, 175, 55, 0.26));
+}
+
+.mode-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 18px;
+}
+
+.mode-row .field-label {
+  margin: 0;
+}
+
+.segmented {
+  display: flex;
+  gap: 3px;
+  background: #070709;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 3px;
+  border-radius: 8px;
+}
+
+.segmented button {
+  border: 0;
+  background: transparent;
+  color: #999386;
+  border-radius: 6px;
+  padding: 7px 13px;
+  font: 600 10.5px 'DM Sans', sans-serif;
+  cursor: pointer;
+  transition: all 140ms ease;
+}
+
+.segmented button.selected {
+  background: linear-gradient(135deg, #d4af37 0%, #b58d22 100%);
+  color: #090806;
+  font-weight: 700;
+}
+
+.preview-heading {
+  display: flex;
+  justify-content: space-between;
+  color: #999284;
+  font-size: 8.5px;
+  letter-spacing: 1px;
+  font-weight: 700;
+  margin: 18px 0 8px;
+}
+
+.preview-heading span + span {
+  color: #e6c35c;
+}
+
+.preview-screen {
+  min-height: 116px;
+  background: #030304;
+  border: 1px solid rgba(212, 175, 55, 0.28);
+  box-shadow: inset 0 0 36px rgba(212, 175, 55, 0.05);
+  border-radius: 10px;
+  padding: 18px 24px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 8px;
+}
+
+.preview-ar {
+  font-family: 'Noto Naskh Arabic', 'Traditional Arabic', serif;
+  color: #f8de86;
+  font-size: 22px;
+  line-height: 1.7;
+  margin: 0;
+  direction: rtl;
+}
+
+.preview-de {
+  color: #f4f1ea;
+  font-size: 13px;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.font-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 14px;
+}
+
+.font-row .field-label {
+  margin: 0;
+}
+
+.font-controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.font-controls button {
+  width: 26px;
+  height: 26px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: #141418;
+  color: #e4decb;
+  border-radius: 6px;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+}
+
+.font-controls button:hover {
+  border-color: #d4af37;
+}
+
+.font-controls input {
+  width: 125px;
+  accent-color: #d4af37;
+}
+
+.font-controls b {
+  font-size: 10.5px;
+  color: #e7c667;
+  min-width: 36px;
+}
+
+.settings-panel {
+  margin-top: 0;
+}
+
+footer {
+  color: #7c7566;
+  font-size: 10px;
+  padding: 18px 2px 6px;
+  text-align: center;
+}
+
+footer span {
+  padding: 0 7px;
+  color: #a88834;
+}
+
+/* =========================================================================
+   PROJECTOR FULLSCREEN (PURE DEEP BLACK & GOLD ARCHIVE LOOK)
+   ========================================================================= */
+.projector {
+  min-width: 0;
+  width: 100vw;
+  height: 100vh;
+  background: #030304;
+  color: #faf7f0;
+  display: grid;
+  place-items: center;
+  padding: 4vw;
+  position: relative;
+}
+
+.projector-inner {
+  max-width: 1600px;
+  width: 100%;
+  text-align: center;
+}
+
+.projector-ar {
+  font-family: 'Noto Naskh Arabic', 'Traditional Arabic', serif;
+  line-height: 1.65;
+  direction: rtl;
+  margin: 0 0 12px;
+}
+
+.projector-de {
+  line-height: 1.5;
+  color: #f4f1ea;
+  margin: 0;
+}
+
+.projector-mark {
+  position: absolute;
+  bottom: 18px;
+  right: 24px;
+  color: rgba(212, 175, 55, 0.45);
+  font-size: 9px;
+  letter-spacing: 2.2px;
+  font-weight: 700;
+}
+
+@media (max-width: 1150px) {
+  .main {
+    padding: 22px 20px;
+  }
+  .sidebar {
+    width: 230px;
+  }
+  .main {
+    width: calc(100% - 230px);
+  }
+  .status-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* OBS Studio browser-source export (does not change projector design) */
+.obs-export-panel { margin: 16px 0; padding: 16px; border: 1px solid rgba(212,175,55,.22); border-radius: 12px; background: rgba(212,175,55,.055); display: flex; flex-direction: column; gap: 10px; }
+.obs-export-title { display:flex; align-items:center; gap:9px; color:#f7d774; font-size:14px; }
+.obs-export-panel p { margin:0; color:#c6bfae; font-size:12px; line-height:1.55; }
+.obs-export-url { width:100%; border:1px solid #484130; padding:11px; border-radius:7px; background:#111113; color:#f4f1ea; font-size:12px; }
+.obs-export-panel .open-projector { align-self:flex-start; }
+.obs-export-panel .obs-export-hint { color:#9e9b93; }
+.obs-export-panel .obs-export-error { color:#fca5a5; }
+.obs-export-panel code { color:#eac66d; }
+
+.obs-control-grid {display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px;}
+.obs-control-grid label {display:flex;flex-direction:column;gap:8px;color:#e6d5a6;font-size:12px;font-weight:600;}
+.obs-control-grid input[type=range] {width:100%;accent-color:#d4af37;}
+
+/* OBS: two clearly separated, independently configurable outputs. */
+.obs-dual-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; align-items:start; }
+.obs-output-card { display:flex; flex-direction:column; gap:12px; min-width:0; padding:15px; border:1px solid rgba(212,175,55,.25); border-radius:10px; background:rgba(8,8,10,.5); }
+.obs-output-heading { display:flex; flex-wrap:wrap; align-items:center; gap:7px; justify-content:space-between; color:#f7d774; }
+.obs-output-heading span { font-size:11px; color:#bdb4a2; }
+.obs-output-card label { display:flex; flex-direction:column; gap:7px; font-size:12px; color:#e6d5a6; }
+.obs-output-card input[type=range] { accent-color:#d4af37; width:100%; }
+.obs-output-card .open-projector { align-self:stretch; justify-content:center; }
+@media (max-width:850px) { .obs-dual-grid { grid-template-columns:minmax(0,1fr); } }
